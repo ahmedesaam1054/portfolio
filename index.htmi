@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعديل الصفحة - نسخة الصورة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #0a0a0a; /* تدرج لوني بنفسجي مثل الصورة التي أرسلتها */
+            font-family: 'Alexandria', sans-serif;
+        }
+        .main-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+        }
+        h1 { color: white; font-size: 22px; margin-bottom: 10px; }
+        p { color: #9ca3af; font-size: 13px; margin-bottom: 25px; }
+        input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #4f46e5;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background: #4338ca; }
+
+        /* تنسيق الصورة المضافة */
+        .secret-img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(79, 70, 229, 0.5); /* إطار بنفسجي خفيف حول الصورة */
+            display: block;
+        }
+
+        #success-content { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="main-container" id="login-form">
+        <h1>تعديل الصفحة</h1>
+        <p>أدخل الرمز السري لتتمكن من رؤية المحتوى السري والصورة</p>
+        <input type="password" id="passCode" placeholder="****">
+        <button onclick="verify()">تأكيد الدخول</button>
+    </div>
+
+    <div class="main-container" id="success-content">
+        <h1 style="color: #10b981;">🔓 تم الدخول بنجاح</h1>
+        
+        <img src="144830010_2516528361973988_6485833738901624627_n.jpg" alt="صورة سرية" class="secret-img">
+        
+        <p id="secret-text" style="color: white; font-size: 16px;">والله انت بارد.</p>
+
+        <img src="143760185_2516631768630314_5667483673884649637_o.jpg" alt="صورة سرية" class="secret-img">
+        
+        <p id="secret-text" style="color: white; font-size: 16px;">محمد اخويا.</p>
+        
+        <button onclick="location.reload()" style="background: #ef4444;">إغلاق</button>
+    </div>
+
+    <script>
+        function verify() {
+            const secret = "123"; 
+            const val = document.getElementById("passCode").value;
+
+            if (val === secret) {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('success-content').style.display = 'block';
+            } else {
+                alert("الرمز غير صحيح!");
+            }
+        }
+    </script>
+</body>
+</html>
